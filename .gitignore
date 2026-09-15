@@ -1,0 +1,13 @@
+# secrets — never commit
+.env
+
+# client data
+menu.json
+project_detail.txt
+
+# python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/

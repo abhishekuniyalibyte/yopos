@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo Pizza — Order Online</title>
+<style>
+  :root {
+    --bg: #f6f6f4;
+    --panel: #fff;
+    --ink: #1c1c1a;
+    --muted: #6b6b66;
+    --line: #e4e4de;
+    --accent: #c8452f;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 20px 20px;
+  }
+  .inner { max-width: 1040px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 27px; letter-spacing: -.01em; }
+  .tagline { color: var(--muted); margin: 0 0 14px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fact {
+    font-size: 12.5px; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 999px; padding: 4px 11px;
+  }
+  .fact.open  { color: #1c6b3f; border-color: #bfe0cc; background: #f0f8f3; }
+  .fact.shut  { color: #8d2b1c; border-color: #eec9c3; background: #fdf2f0; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(246,246,244,.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 11px 20px;
+    overflow-x: auto;
+  }
+  nav .inner { display: flex; gap: 7px; }
+  nav button {
+    flex-shrink: 0;
+    font: inherit; font-size: 13.5px;
+    background: var(--panel); color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 13px; cursor: pointer; white-space: nowrap;
+  }
+  nav button:hover { color: var(--ink); }
+  nav button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 22px 20px 130px; }
+  .cat { margin-bottom: 30px; scroll-margin-top: 62px; }
+  .cat h2 {
+    font-size: 17px; margin: 0 0 3px;
+    display: flex; align-items: baseline; gap: 9px;
+  }
+  .cat h2 .n { font-size: 12.5px; font-weight: 400; color: var(--muted); }
+  .cat > p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 11px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 13px 14px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .card .nm { font-weight: 600; line-height: 1.35; }
+  .card .pr { font-variant-numeric: tabular-nums; }
+  .card .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+  .tag {
+    font-size: 11px; color: var(--muted);
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 5px; padding: 2px 6px;
+  }
+  .tag.warn { color: #8d2b1c; border-color: #eec9c3; background: #fdf2f0; }
+
+  .hint {
+    max-width: 1040px; margin: 0 auto 20px; padding: 13px 15px;
+    background: #fff8ea; border: 1px solid #ecd9b0; border-radius: var(--radius);
+    font-size: 13.5px; color: #6b5220;
+  }
+  .hint b { color: #4a3812; }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 20px;
+    color: var(--muted); font-size: 12.5px; text-align: center;
+  }
+  .loading { padding: 50px 0; text-align: center; color: var(--muted); }
+  .error {
+    padding: 15px; border-radius: var(--radius);
+    background: #fdecea; color: #8d2b1c; border: 1px solid #eec9c3;
+  }
+  @media (max-width: 520px) { h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1 id="name">Loading…</h1>
+    <p class="tagline" id="addr"></p>
+    <div class="facts" id="facts"></div>
+  </div>
+</header>
+
+<nav><div class="inner" id="nav"></div></nav>
+
+<main>
+  <div class="hint">
+    <b>Try the assistant.</b> Click <b>Ask AI</b> in the bottom-right, then try
+    “what wraps do you have under £7?”, “add a chicken doner wrap”, or
+    “recommend me a high-protein item”.
+  </div>
+  <div id="menu"><div class="loading">Loading menu…</div></div>
+</main>
+
+<footer id="foot"></footer>
+
+<script>
+const API = "http://localhost:8000";
+const $ = id => document.getElementById(id);
+const money = n => "£" + Number(n).toFixed(2);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+
+/* Is the shop open right now, per the store's own per-day hours? */
+function openNow(hours) {
+  if (!hours) return null;
+  const now = new Date();
+  const day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][now.getDay()];
+  const today = hours[day];
+  if (!today) return null;
+
+  const to24 = t => {
+    const m = t.trim().match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!m) return null;
+    let h = +m[1] % 12;
+    if (/PM/i.test(m[3])) h += 12;
+    return h * 60 + +m[2];
+  };
+  const [from, until] = today.split("-").map(to24);
+  if (from == null || until == null) return null;
+  const mins = now.getHours() * 60 + now.getMinutes();
+  return { open: mins >= from && mins < until, today };
+}
+
+fetch(API + "/api/menu")
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(render)
+  .catch(err => {
+    $("menu").innerHTML = '<div class="error"><b>Could not reach the API.</b><br>'
+      + 'Start the backend first:<br><code>uvicorn server.app:app --reload</code><br><br>'
+      + esc(err.message) + '</div>';
+  });
+
+function render(data) {
+  const s = data.store;
+  document.title = s.name + " — Order Online";
+  $("name").textContent = s.name;
+  $("addr").textContent = s.address;
+
+  const state = openNow(s.opening_hours);
+  const facts = [];
+  if (state) {
+    facts.push(state.open
+      ? `<span class="fact open">Open now · ${esc(state.today)}</span>`
+      : `<span class="fact shut">Closed · today ${esc(state.today)}</span>`);
+  }
+  facts.push(`<span class="fact">Ready in ${esc(s.cook_time)}</span>`);
+  facts.push(`<span class="fact">Delivery within ${esc(s.delivery_radius_miles)} miles</span>`);
+  facts.push(`<span class="fact">${data.item_count} items</span>`);
+  if (s.phone) facts.push(`<span class="fact">${esc(s.phone)}</span>`);
+  $("facts").innerHTML = facts.join("");
+
+  // Group by category, preserving the order the API returned.
+  const byCat = new Map();
+  data.items.forEach(i => {
+    if (!byCat.has(i.category)) byCat.set(i.category, []);
+    byCat.get(i.category).push(i);
+  });
+
+  const cats = [...byCat.keys()].sort((a, b) => byCat.get(b).length - byCat.get(a).length);
+
+  $("nav").innerHTML = '<button class="on" data-cat="">Everything</button>'
+    + cats.map(c => `<button data-cat="${esc(c)}">${esc(c)} <span style="opacity:.55">${byCat.get(c).length}</span></button>`).join("");
+
+  $("menu").innerHTML = cats.map(cat => {
+    const items = byCat.get(cat);
+    const low = Math.min(...items.map(i => i.price));
+    const high = Math.max(...items.map(i => i.price));
+    return `
+      <section class="cat" data-cat="${esc(cat)}" id="cat-${esc(cat).replace(/\W+/g,"-")}">
+        <h2>${esc(cat)} <span class="n">${items.length} items · ${money(low)}${low === high ? "" : "–" + money(high)}</span></h2>
+        <div class="grid">
+          ${items.map(card).join("")}
+        </div>
+      </section>`;
+  }).join("");
+
+  $("foot").textContent = `${s.name} · ${s.postcode} · prices in ${s.currency}`
+    + " · demo storefront, the cart is not a real order";
+
+  $("nav").addEventListener("click", e => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    const want = btn.dataset.cat;
+    $("nav").querySelectorAll("button").forEach(b => b.classList.toggle("on", b === btn));
+    document.querySelectorAll(".cat").forEach(sec => {
+      sec.hidden = want && sec.dataset.cat !== want;
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function card(i) {
+  const tags = [];
+  (i.meal_times || []).forEach(m => tags.push(`<span class="tag">${esc(m)}</span>`));
+  if (i.required_choices && i.required_choices.length) {
+    tags.push(`<span class="tag">${i.required_choices.length} choice${i.required_choices.length > 1 ? "s" : ""} required</span>`);
+  }
+  // Surfaced, not hidden: this is a real error in the client's export worth seeing.
+  if (i.price >= 50) tags.push('<span class="tag warn">check price</span>');
+
+  return `
+    <div class="card">
+      <div class="nm">${esc(i.name)}</div>
+      <div class="pr">${money(i.price)}</div>
+      <div class="tags">${tags.join("")}</div>
+    </div>`;
+}
+</script>
+
+<!-- The assistant. One tag, exactly as it would be added to the real YOPOS site. -->
+<script src="http://localhost:8000/widget.js" data-api="http://localhost:8000" defer></script>
+</body>
+</html>

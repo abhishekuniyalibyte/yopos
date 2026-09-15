@@ -1,0 +1,65 @@
+{
+  "_README": [
+    "OUR editorial judgments — NOT client data. menu.json is the client's source of truth.",
+    "clean_menu.py reads this at build time. Edit here and re-run; never hand-edit menu_clean.json.",
+    "Everything in this file is a decision we made and can defend, not a fact from the client."
+  ],
+
+  "_meal_times_note": [
+    "Which meals each category suits. Serving-time judgment, NOT a health or nutrition claim.",
+    "Low stakes: a kebab tagged dinner-only when someone wants it at lunch harms nobody.",
+    "Store opens 06:00, so 'breakfast' is a real window even though there is no breakfast menu.",
+    "Valid values: breakfast, lunch, dinner."
+  ],
+  "meal_times": {
+    "Burgers":        ["lunch", "dinner"],
+    "Wraps":          ["lunch", "dinner"],
+    "Kebabs":         ["lunch", "dinner"],
+    "Traditional":    ["lunch", "dinner"],
+    "Drinks":         ["breakfast", "lunch", "dinner"],
+    "Pies & Pasties": ["breakfast", "lunch", "dinner"],
+    "Starters":       ["lunch", "dinner"],
+    "Specials":       ["lunch", "dinner"],
+    "Curries":        ["dinner"],
+    "Sundries":       ["breakfast", "lunch", "dinner"],
+    "Pitta Bread":    ["lunch", "dinner"],
+    "Boxes":          ["lunch", "dinner"],
+    "Garlic Breads":  ["lunch", "dinner"]
+  },
+
+  "_step_types_note": [
+    "All 204 customisation steps are labelled 'Please Select' / 'Choose 1' in the client data,",
+    "so a step cannot be told from its own label. We infer the step's purpose from its OPTION",
+    "titles instead — there are only 16 distinct ones across all 735 option rows.",
+    "Matching is exact (case-insensitive) on option titles; unmatched steps fall back to",
+    "default_step_label. This maps STRUCTURE, not nutrition — which is why it is safe where",
+    "inventing calories is not."
+  ],
+  "step_types": {
+    "Sauce choice": ["chilli sauce", "mayo", "tomato sauce", "bbq sauce", "bbq saucce", "no sauce"],
+    "Salad choice": ["salad", "no salad"],
+    "Drink choice": ["ice mango can", "ice lemon can", "ice orange can", "pepsi can", "ice cola can", "lemon"],
+    "Bread choice": ["nan", "2x roti"]
+  },
+  "default_step_label": "Please choose one of the following",
+
+  "_display_fixes_note": [
+    "Typo fixes for DISPLAY TEXT ONLY. The original item_step_option_id is always preserved in",
+    "the output — that ID is what the cart backend expects, typo or not. Keys are matched",
+    "case-insensitively against the raw option title."
+  ],
+  "display_fixes": {
+    "bbq saucce": "BBQ Sauce"
+  },
+
+  "_excluded_items_note": [
+    "Items withheld from the AI's menu, by item_id. Both are priced 0.00 and we cannot ask the",
+    "client whether that is intentional. A bot that adds a free item to a cart looks broken, so",
+    "we hide them rather than guess. 'Burger King' is also the only variation item in the file",
+    "(one variation priced 11), which suggests its 0 base price is a data error."
+  ],
+  "excluded_items": {
+    "3356": "Burger King — price 0.00, unresolved; also the only variation item",
+    "3293": "Water bottle — price 0.00, unresolved"
+  }
+}

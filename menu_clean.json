@@ -1,0 +1,7058 @@
+{
+  "store": {
+    "name": "Demo Pizza",
+    "address": "Asim Pizza & Kebab House, 227A Lozells Rd, Lozells, Birmingham B19 1RJ, United Kingdom",
+    "phone": "8802673606",
+    "postcode": "B19 1RJ",
+    "cook_time": "15 min",
+    "delivery_radius_miles": "5",
+    "delivery_fee": null,
+    "minimum_order": null,
+    "currency": "GBP",
+    "opening_hours": {
+      "Monday": "06:00 AM - 11:00 PM",
+      "Tuesday": "06:00 AM - 11:00 PM",
+      "Wednesday": "10:00 AM - 11:00 PM",
+      "Thursday": "10:00 AM - 11:00 PM",
+      "Friday": "10:00 AM - 11:00 PM",
+      "Saturday": "10:00 AM - 11:00 PM",
+      "Sunday": "10:00 AM - 11:00 PM"
+    }
+  },
+  "dietary_policy": {
+    "has_nutrition_data": false,
+    "rule": "This menu contains no calorie, protein, carbohydrate, fat, allergen or ingredient data. Never state or imply such information, and never describe an item as healthy, light, low-calorie, high-protein, low-carb or diet-friendly. If asked, say the information is not available and refer the customer to the restaurant.",
+    "suggested_reply": "I don't have nutrition or allergen information for our menu, so I can't tell you which items are highest in protein — I'd recommend checking with the restaurant directly. I can tell you what's on the menu, though."
+  },
+  "categories": [
+    "Boxes",
+    "Burgers",
+    "Curries",
+    "Drinks",
+    "Garlic Breads",
+    "Kebabs",
+    "Pies & Pasties",
+    "Pitta Bread",
+    "Specials",
+    "Starters",
+    "Sundries",
+    "Traditional",
+    "Wraps"
+  ],
+  "item_count": 135,
+  "items": [
+    {
+      "item_id": 3088,
+      "name": "Daddy Combo Box",
+      "category": "Boxes",
+      "price": 12.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1908,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7372,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7373,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1909,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7374,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7375,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7376,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7377,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7378,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3091,
+      "name": "Grafters Box",
+      "category": "Boxes",
+      "price": 12.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "description": "Our Famous Tower Burger Served With Chips And Our Popular Stir Fry Donor Kebab And A Portion Of Niblet.",
+      "steps": [
+        {
+          "step_id": 1910,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7379,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7380,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1911,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7381,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7382,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7383,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7384,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7385,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3089,
+      "name": "Snack Box",
+      "category": "Boxes",
+      "price": 12.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3090,
+      "name": "Super Snack Box",
+      "category": "Boxes",
+      "price": 19.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3065,
+      "name": "Beef Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1847,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7151,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7152,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1848,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7153,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7154,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7155,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7156,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7157,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1849,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7158,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7159,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7160,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7161,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3061,
+      "name": "Cheese Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1837,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7115,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7116,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1838,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7117,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7118,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7119,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7120,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7121,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1839,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7122,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7123,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7124,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7125,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3071,
+      "name": "Chicken Doner Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1862,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7205,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7206,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1863,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7207,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7208,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7209,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7210,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7211,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1864,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7212,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7213,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7214,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7215,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3069,
+      "name": "Chicken Fillet Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1857,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7187,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7188,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1858,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7189,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7190,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7191,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7192,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7193,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1859,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7194,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7195,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7196,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7197,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3077,
+      "name": "Doner Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1877,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7259,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7260,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1878,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7261,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7262,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7263,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7264,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7265,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1879,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7266,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7267,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7268,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7269,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3063,
+      "name": "Double Cheeseburger",
+      "category": "Burgers",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1842,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7133,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7134,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1843,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7135,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7136,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7137,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7138,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7139,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3064,
+      "name": "Double Cheeseburger Meal",
+      "category": "Burgers",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1844,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7140,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7141,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1845,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7142,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7143,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7144,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7145,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7146,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1846,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7147,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7148,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7149,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7150,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3081,
+      "name": "Fish Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1889,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7303,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7304,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1890,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7305,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7306,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7307,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7308,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7309,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1891,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7310,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7311,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7312,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7313,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3083,
+      "name": "Fishcake Burger Meal",
+      "category": "Burgers",
+      "price": 5.0,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1894,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7321,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7322,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1895,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7323,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7324,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7325,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7326,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7327,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1896,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7328,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7329,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7330,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7331,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3085,
+      "name": "Fresh Chicken Breast Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1899,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7339,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7340,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1900,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7341,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7342,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7343,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7344,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7345,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1901,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7346,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7347,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7348,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7349,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3075,
+      "name": "Masala Fish Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1872,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7241,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7242,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1873,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7243,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7244,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7245,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7246,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7247,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1874,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7248,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7249,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7250,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7251,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3067,
+      "name": "Mixed Doner Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1852,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7169,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7170,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1853,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7171,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7172,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7173,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7174,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7175,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1854,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7176,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7177,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7178,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7179,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3086,
+      "name": "Shami Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1902,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7350,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7351,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1903,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7352,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7353,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7354,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7355,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7356,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1904,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7357,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7358,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7359,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7360,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3066,
+      "name": "Single Beef Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1850,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7162,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7163,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1851,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7164,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7165,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7166,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7167,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7168,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3062,
+      "name": "Single Cheese Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1840,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7126,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7127,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1841,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7128,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7129,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7130,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7131,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7132,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3072,
+      "name": "Single Chicken Doner Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1865,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7216,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7217,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1866,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7218,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7219,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7220,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7221,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7222,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3070,
+      "name": "Single Chicken Fillet Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1860,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7198,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7199,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1861,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7200,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7201,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7202,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7203,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7204,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3078,
+      "name": "Single Doner Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1880,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7270,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7271,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1881,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7272,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7273,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7274,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7275,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7276,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1882,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7277,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7278,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7279,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7280,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3082,
+      "name": "Single Fish Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1892,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7314,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7315,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1893,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7316,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7317,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7318,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7319,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7320,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3084,
+      "name": "Single Fishcake Burger",
+      "category": "Burgers",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1897,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7332,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7333,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1898,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7334,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7335,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7336,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7337,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7338,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3076,
+      "name": "Single Masala Fish Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1875,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7252,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7253,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1876,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7254,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7255,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7256,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7257,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7258,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3068,
+      "name": "Single Mixed Doner Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1855,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7180,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7181,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1856,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7182,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7183,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7184,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7185,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7186,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3087,
+      "name": "Single Shami Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1905,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7361,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7362,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1906,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7363,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7364,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7365,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7366,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7367,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1907,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7368,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7369,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7370,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7371,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3080,
+      "name": "Single Vegi Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1886,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7292,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7293,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1887,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7294,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7295,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7296,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7297,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7298,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1888,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7299,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7300,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7301,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7302,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3074,
+      "name": "Single Zinger Burger",
+      "category": "Burgers",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1870,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7234,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7235,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1871,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7236,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7237,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7238,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7239,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7240,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3079,
+      "name": "Vegi Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1883,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7281,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7282,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1884,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7283,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7284,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7285,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7286,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7287,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1885,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7288,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7289,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7290,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7291,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3073,
+      "name": "Zinger Burger Meal",
+      "category": "Burgers",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1867,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7223,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7224,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1868,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7225,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7226,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7227,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7228,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7229,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1869,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7230,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7231,
+              "name": "Pepsi Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7232,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 7233,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3031,
+      "name": "Chicken Balti",
+      "category": "Curries",
+      "price": 6.99,
+      "meal_times": [
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1832,
+          "label": "Bread choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7105,
+              "name": "Nan",
+              "extra_price": null
+            },
+            {
+              "option_id": 7106,
+              "name": "2x Roti",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3034,
+      "name": "Chicken Spinach Balti",
+      "category": "Curries",
+      "price": 7.99,
+      "meal_times": [
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1835,
+          "label": "Bread choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7111,
+              "name": "Nan",
+              "extra_price": null
+            },
+            {
+              "option_id": 7112,
+              "name": "2x Roti",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3035,
+      "name": "Daal",
+      "category": "Curries",
+      "price": 5.99,
+      "meal_times": [
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1836,
+          "label": "Bread choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7113,
+              "name": "Nan",
+              "extra_price": null
+            },
+            {
+              "option_id": 7114,
+              "name": "2x Roti",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3032,
+      "name": "Meat Balti",
+      "category": "Curries",
+      "price": 7.99,
+      "meal_times": [
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1833,
+          "label": "Bread choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7107,
+              "name": "Nan",
+              "extra_price": null
+            },
+            {
+              "option_id": 7108,
+              "name": "2x Roti",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3033,
+      "name": "Vegetable Balti",
+      "category": "Curries",
+      "price": 5.99,
+      "meal_times": [
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1834,
+          "label": "Bread choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7109,
+              "name": "Nan",
+              "extra_price": null
+            },
+            {
+              "option_id": 7110,
+              "name": "2x Roti",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3058,
+      "name": "1.5ltr 7up Bottle",
+      "category": "Drinks",
+      "price": 2.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3059,
+      "name": "1.5ltr Ice Cola Bottle",
+      "category": "Drinks",
+      "price": 2.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3060,
+      "name": "1.5ltr Ice Lemon Bottle",
+      "category": "Drinks",
+      "price": 2.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 2960,
+      "name": "1.5ltr Pepsi Bottle",
+      "category": "Drinks",
+      "price": 2.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3055,
+      "name": "Ice Cola Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3052,
+      "name": "Ice Lemon Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3054,
+      "name": "Ice Mango Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3053,
+      "name": "Ice Orange Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3056,
+      "name": "Ice Strawberry Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3057,
+      "name": "Ice X Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3051,
+      "name": "Pepsi Can",
+      "category": "Drinks",
+      "price": 1.49,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3291,
+      "name": "Chilly  burger",
+      "category": "Garlic Breads",
+      "price": 100.0,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1950,
+          "label": "Drink choice",
+          "required": false,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7521,
+              "name": "Lemon",
+              "extra_price": 10.0
+            }
+          ]
+        }
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 2979,
+      "name": "Garlic Bread",
+      "category": "Garlic Breads",
+      "price": 2.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 2980,
+      "name": "Garlic Bread With Cheese",
+      "category": "Garlic Breads",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 2961,
+      "name": "Chicken Doner in Naan",
+      "category": "Kebabs",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1704,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6635,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6636,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1705,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6637,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6638,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6639,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6640,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2966,
+      "name": "Doner Meat In Naan",
+      "category": "Kebabs",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1714,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6665,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6666,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1715,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6667,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6668,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6669,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6670,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6671,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2975,
+      "name": "Grilled Chicken Donor And Chips",
+      "category": "Kebabs",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1732,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6728,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6729,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1733,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6730,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6731,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6732,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6733,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6734,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2971,
+      "name": "Grilled Donor And Chips Small",
+      "category": "Kebabs",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1724,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6700,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6701,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1725,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6702,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6703,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6704,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6705,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6706,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2967,
+      "name": "Grilled Donor On Naan",
+      "category": "Kebabs",
+      "price": 7.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1716,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6672,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6673,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1717,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6674,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6675,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6676,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6677,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6678,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2968,
+      "name": "Grilled Mixed Kebab On Nan",
+      "category": "Kebabs",
+      "price": 7.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1718,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6679,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6680,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1719,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6681,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6682,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6683,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6684,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6685,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2973,
+      "name": "Large Chicken Donner & Chips",
+      "category": "Kebabs",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1728,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6714,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6715,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1729,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6716,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6717,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6718,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6719,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6720,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2969,
+      "name": "Large Donner Meat & Chips",
+      "category": "Kebabs",
+      "price": 5.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1720,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6686,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6687,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1721,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6688,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6689,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6690,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6691,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6692,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2976,
+      "name": "Large Grilled Chicken Donor And Chips",
+      "category": "Kebabs",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1734,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6735,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6736,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1735,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6737,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6738,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6739,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6740,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6741,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2972,
+      "name": "Large Grilled Donor And Chips",
+      "category": "Kebabs",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1726,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6707,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6708,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1727,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6709,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6710,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6711,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6712,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6713,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2978,
+      "name": "Large Mixed Kebab And Chips",
+      "category": "Kebabs",
+      "price": 6.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1738,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6749,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6750,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1739,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6751,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6752,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6753,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6754,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6755,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2964,
+      "name": "Masala Fish in Naan (cod)",
+      "category": "Kebabs",
+      "price": 7.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1710,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6653,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6654,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1711,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6655,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6656,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6657,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6658,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2965,
+      "name": "Mixed Kebab On Naan",
+      "category": "Kebabs",
+      "price": 6.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1712,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6659,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6660,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1713,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6661,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6662,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6663,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6664,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2974,
+      "name": "Regular Chicken Donner & Chips",
+      "category": "Kebabs",
+      "price": 4.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1730,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6721,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6722,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1731,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6723,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6724,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6725,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6726,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6727,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2970,
+      "name": "Regular Donner Meat & Chips",
+      "category": "Kebabs",
+      "price": 4.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1722,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6693,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6694,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1723,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6695,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6696,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6697,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6698,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6699,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2977,
+      "name": "Regular Mixed Kebab And Chips",
+      "category": "Kebabs",
+      "price": 5.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1736,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6742,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6743,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1737,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6744,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6745,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6746,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6747,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6748,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3007,
+      "name": "Beef & Onion Pie",
+      "category": "Pies & Pasties",
+      "price": 3.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1801,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6974,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6975,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1802,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6976,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6977,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6978,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6979,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6980,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3008,
+      "name": "Beef & Onion Pie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1803,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6981,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6982,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1804,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6983,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6984,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6985,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6986,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6987,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3006,
+      "name": "Chicken & Mushroom Pie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1799,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6967,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6968,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1800,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6969,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6970,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6971,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6972,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6973,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3009,
+      "name": "Chicken Pattie",
+      "category": "Pies & Pasties",
+      "price": 3.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1805,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6988,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6989,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1806,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6990,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6991,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6992,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6993,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6994,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3010,
+      "name": "Chicken Pattie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1807,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6995,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6996,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1808,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6997,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6998,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6999,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7000,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7001,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3011,
+      "name": "Lamb Pattie",
+      "category": "Pies & Pasties",
+      "price": 3.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1809,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7002,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7003,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1810,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7004,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7005,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7006,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7007,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7008,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3012,
+      "name": "Lamb Pattie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1811,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7009,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7010,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1812,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7011,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7012,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7013,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7014,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7015,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3003,
+      "name": "Steak & Kidney Pie",
+      "category": "Pies & Pasties",
+      "price": 3.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1793,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6946,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6947,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1794,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6948,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6949,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6950,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6951,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6952,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3004,
+      "name": "Steak & Kidney Pie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1795,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6953,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6954,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1796,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6955,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6956,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6957,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6958,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6959,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3013,
+      "name": "Vegetable Pattie",
+      "category": "Pies & Pasties",
+      "price": 3.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1813,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7016,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7017,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1814,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7018,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7019,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7020,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7021,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7022,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3014,
+      "name": "Vegetable Pattie With Chips",
+      "category": "Pies & Pasties",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1815,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7023,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7024,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1816,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7025,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7026,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7027,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7028,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7029,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2981,
+      "name": "Chicken Doner In Pitta",
+      "category": "Pitta Bread",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1740,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6756,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6757,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1741,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6758,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6759,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6760,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6761,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6762,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2982,
+      "name": "Doner Meat In Pitta",
+      "category": "Pitta Bread",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1742,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6763,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6764,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1743,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6765,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6766,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6767,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6768,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6769,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2983,
+      "name": "Mixed Kebab In Pita",
+      "category": "Pitta Bread",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1744,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6770,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6771,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1745,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6772,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6773,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6774,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6775,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6776,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2984,
+      "name": "Shish Kebab In Pita",
+      "category": "Pitta Bread",
+      "price": 5.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1746,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6777,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6778,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1747,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6779,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6780,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6781,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6782,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6783,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3096,
+      "name": "8pcs Naga Nibblets",
+      "category": "Specials",
+      "price": 6.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3097,
+      "name": "Chicken Loaded Chips",
+      "category": "Specials",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3092,
+      "name": "Chicken Tikka & Chips",
+      "category": "Specials",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3094,
+      "name": "Grilled Cod Fish On Nan",
+      "category": "Specials",
+      "price": 8.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1912,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7386,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 7387,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1913,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7388,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7389,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7390,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7391,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7392,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3095,
+      "name": "Half Chicken On Nan",
+      "category": "Specials",
+      "price": 7.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3093,
+      "name": "Whole Chicken On Naan",
+      "category": "Specials",
+      "price": 12.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3038,
+      "name": "Chicken Pakora",
+      "category": "Starters",
+      "price": 2.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3041,
+      "name": "Chicken Sheesh Kebab",
+      "category": "Starters",
+      "price": 1.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3044,
+      "name": "Cod Roe",
+      "category": "Starters",
+      "price": 1.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3036,
+      "name": "Fish Cakes",
+      "category": "Starters",
+      "price": 1.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3039,
+      "name": "Fish Pakora",
+      "category": "Starters",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3040,
+      "name": "Katlama",
+      "category": "Starters",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3045,
+      "name": "Sausage",
+      "category": "Starters",
+      "price": 1.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3042,
+      "name": "Shami Kebab",
+      "category": "Starters",
+      "price": 1.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3043,
+      "name": "Spring Roll",
+      "category": "Starters",
+      "price": 1.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3037,
+      "name": "Vegetable Pakora",
+      "category": "Starters",
+      "price": 2.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3049,
+      "name": "Cheese Naan",
+      "category": "Sundries",
+      "price": 2.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3048,
+      "name": "Chicken Biryani",
+      "category": "Sundries",
+      "price": 3.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3050,
+      "name": "Mixed Salad",
+      "category": "Sundries",
+      "price": 1.99,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3047,
+      "name": "Naan",
+      "category": "Sundries",
+      "price": 1.0,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3046,
+      "name": "Roti",
+      "category": "Sundries",
+      "price": 0.8,
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3017,
+      "name": "5pc Bbq Niblets",
+      "category": "Traditional",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "needs_customisation": false
+    },
+    {
+      "item_id": 3018,
+      "name": "5pcs Chicken Nibblets",
+      "category": "Traditional",
+      "price": 2.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1819,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7040,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7041,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7042,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7043,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7044,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3019,
+      "name": "5pcs Chicken Nibblets & Chips",
+      "category": "Traditional",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1820,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7045,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7046,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7047,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7048,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7049,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3029,
+      "name": "5pcs Nuggets",
+      "category": "Traditional",
+      "price": 2.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1830,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7095,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7096,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7097,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7098,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7099,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3030,
+      "name": "5pcs Nuggets With Chips",
+      "category": "Traditional",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1831,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7100,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7101,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7102,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7103,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7104,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3024,
+      "name": "Chicken & Chips",
+      "category": "Traditional",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1825,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7070,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7071,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7072,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7073,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7074,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3027,
+      "name": "Fish Cake & Chips",
+      "category": "Traditional",
+      "price": 2.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1828,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7085,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7086,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7087,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7088,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7089,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3021,
+      "name": "Large Chips",
+      "category": "Traditional",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1822,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7055,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7056,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7057,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7058,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7059,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3016,
+      "name": "Large Cod Fish & Chips",
+      "category": "Traditional",
+      "price": 8.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1818,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7035,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7036,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7037,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7038,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7039,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3023,
+      "name": "Large Fries",
+      "category": "Traditional",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1824,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7065,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7066,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7067,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7068,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7069,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3026,
+      "name": "Roe & Chips",
+      "category": "Traditional",
+      "price": 2.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1827,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7080,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7081,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7082,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7083,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7084,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3028,
+      "name": "Sausage & Chips",
+      "category": "Traditional",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1829,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7090,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7091,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7092,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7093,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7094,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3020,
+      "name": "Small Chips",
+      "category": "Traditional",
+      "price": 2.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1821,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7050,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7051,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7052,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7053,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7054,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3015,
+      "name": "Small Cod Fish & Chips",
+      "category": "Traditional",
+      "price": 6.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1817,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7030,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7031,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7032,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7033,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7034,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3022,
+      "name": "Small Fries",
+      "category": "Traditional",
+      "price": 2.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1823,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 7060,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7061,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7062,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 7063,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 7064,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2988,
+      "name": "Chicken Doner Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1754,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6805,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6806,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1755,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6807,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6808,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6809,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6810,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6811,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1787,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6922,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6923,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6924,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6925,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2994,
+      "name": "Chicken Fillet Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1766,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6847,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6848,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1767,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6849,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6850,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6851,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6852,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6853,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1790,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6934,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6935,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6936,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6937,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2998,
+      "name": "Chicken Tikka Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1774,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6875,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6876,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1775,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6877,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6878,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6879,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6880,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6881,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1792,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6942,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6943,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6944,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6945,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3000,
+      "name": "Chicken Zinger Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1778,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6889,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6890,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1779,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6891,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6892,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6893,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6894,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6895,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1780,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6896,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6897,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6898,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6899,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2996,
+      "name": "Daddy Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1770,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6861,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6862,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1771,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6863,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6864,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6865,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6866,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6867,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1791,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6938,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6939,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6940,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6941,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2986,
+      "name": "Doner Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1750,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6791,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6792,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1751,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6793,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6794,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6795,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6796,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6797,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1786,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6918,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6919,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6920,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6921,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2992,
+      "name": "Masala Fish Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1762,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6833,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6834,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1763,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6835,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6836,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6837,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6838,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6839,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1789,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6930,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6931,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6932,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6933,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2990,
+      "name": "Mixed Doner Wrap Meal",
+      "category": "Wraps",
+      "price": 4.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1758,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6819,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6820,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1759,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6821,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6822,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6823,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6824,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6825,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1788,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6926,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6927,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6928,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6929,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3001,
+      "name": "Shish Kebab Wrap Meal",
+      "category": "Wraps",
+      "price": 4.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1781,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6900,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6901,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1782,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6902,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6903,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6904,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6905,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6906,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1783,
+          "label": "Drink choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6907,
+              "name": "Ice Cola Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6908,
+              "name": "Ice Mango Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6909,
+              "name": "Ice Lemon Can",
+              "extra_price": null
+            },
+            {
+              "option_id": 6910,
+              "name": "Ice Orange Can",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2987,
+      "name": "Single Chicken Doner Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1752,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6798,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6799,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1753,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6800,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6801,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6802,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6803,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6804,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2993,
+      "name": "Single Chicken Fillet Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1764,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6840,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6841,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1765,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6842,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6843,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6844,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6845,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6846,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2997,
+      "name": "Single Chicken Tikka Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1772,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6868,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6869,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1773,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6870,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6871,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6872,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6873,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6874,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2999,
+      "name": "Single Chicken Zinger Wrap",
+      "category": "Wraps",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1776,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6882,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6883,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1777,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6884,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6885,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6886,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6887,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6888,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2995,
+      "name": "Single Daddy Wrap",
+      "category": "Wraps",
+      "price": 3.99,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1768,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6854,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6855,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1769,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6856,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6857,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6858,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6859,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6860,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2985,
+      "name": "Single Doner Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1748,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6784,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6785,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1749,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6786,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6787,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6788,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6789,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6790,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2991,
+      "name": "Single Masala Fish Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1760,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6826,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6827,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1761,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6828,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6829,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6830,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6831,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6832,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 2989,
+      "name": "Single Mixed Doner Wrap",
+      "category": "Wraps",
+      "price": 3.5,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1756,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6812,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6813,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1757,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6814,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6815,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6816,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6817,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6818,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    },
+    {
+      "item_id": 3002,
+      "name": "Single Shish Kebab Wrap",
+      "category": "Wraps",
+      "price": 3.49,
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "steps": [
+        {
+          "step_id": 1784,
+          "label": "Salad choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6911,
+              "name": "Salad",
+              "extra_price": null
+            },
+            {
+              "option_id": 6912,
+              "name": "No Salad",
+              "extra_price": null
+            }
+          ]
+        },
+        {
+          "step_id": 1785,
+          "label": "Sauce choice",
+          "required": true,
+          "max_choices": 1,
+          "options": [
+            {
+              "option_id": 6913,
+              "name": "BBQ Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6914,
+              "name": "Chilli Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6915,
+              "name": "Mayo",
+              "extra_price": null
+            },
+            {
+              "option_id": 6916,
+              "name": "Tomato Sauce",
+              "extra_price": null
+            },
+            {
+              "option_id": 6917,
+              "name": "No Sauce",
+              "extra_price": null
+            }
+          ]
+        }
+      ],
+      "needs_customisation": true
+    }
+  ]
+}
