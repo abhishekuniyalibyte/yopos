@@ -16,6 +16,35 @@ MENU_PATH = Path(os.getenv("MENU_PATH", BASE_DIR / "menu_clean.json"))
 # is that the key stays on the server. Get one at https://console.groq.com/keys
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
+
+def _collect_keys() -> list[str]:
+    """
+    Every usable key, in the order they should be tried.
+
+    Groq's free tier caps tokens per day per organization, so a spare key from a separate
+    account is a fresh budget. Keys come from GROQ_API_KEYS (comma-separated) and
+    GROQ_API_KEY, plus any GROQ_API_KEY_2, _3, ... — whichever is convenient. Duplicates
+    are dropped, order preserved.
+
+    Note: several keys from the SAME Groq account share one budget, so rotation only buys
+    headroom when the keys belong to different accounts.
+    """
+    found: list[str] = []
+    raw = [os.getenv("GROQ_API_KEYS", "")]
+    raw.append(GROQ_API_KEY)
+    for n in range(2, 11):
+        raw.append(os.getenv(f"GROQ_API_KEY_{n}", ""))
+
+    for entry in raw:
+        for key in entry.split(","):
+            key = key.strip().strip("'\"")
+            if key and key not in found:
+                found.append(key)
+    return found
+
+
+GROQ_API_KEYS = _collect_keys()
+
 # Groq exposes an OpenAI-compatible Chat Completions API.
 GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 

@@ -27,6 +27,7 @@ import httpx
 
 from . import config
 from .cart import Cart
+from .keys import KeyPool
 from .menu import Menu
 from .prompts import build_system_prompt
 from .tools import run_tool, tool_definitions
@@ -114,18 +115,22 @@ class Assistant:
 
     def __init__(self, menu: Menu, api_key: str | None = None) -> None:
         self._menu = menu
-        self._api_key = api_key or config.GROQ_API_KEY
+        self._keys = KeyPool.from_values([api_key] if api_key else config.GROQ_API_KEYS)
         self._tools = tool_definitions(menu)
         self._system = build_system_prompt(menu, config.ALLOW_NUTRITION_INFERENCE)
 
+    @property
+    def keys(self) -> KeyPool:
+        return self._keys
+
     async def _call_model(
-        self, messages: list[dict[str, Any]], client: httpx.AsyncClient
+        self, messages: list[dict[str, Any]], client: httpx.AsyncClient, api_key: str
     ) -> dict[str, Any]:
         response = await client.post(
             f"{config.GROQ_BASE_URL.rstrip('/')}/chat/completions",
             headers={
                 "content-type": "application/json",
-                "authorization": f"Bearer {self._api_key}",
+                "authorization": f"Bearer {api_key}",
             },
             json={
                 "model": config.MODEL,
@@ -171,26 +176,45 @@ class Assistant:
         self, messages: list[dict[str, Any]], client: httpx.AsyncClient
     ) -> dict[str, Any]:
         """
-        Ride out Groq's short per-minute throttle.
+        Ride out Groq's rate limits, which come in two very different flavours.
 
-        A tool result can push the conversation over the input-tokens-per-minute ceiling
-        mid-turn, and that clears in under a second — so retrying is far better than
-        failing the customer's message. A spent daily budget is not retried: no amount of
-        waiting inside one request will fix it.
+        A spent DAILY budget belongs to one account, so the fix is a different key —
+        retire this one and retry immediately with the next. Waiting would not help.
+
+        The short per-minute throttle clears in under a second and applies to any key on
+        that account, so it is ridden out on the same key rather than burning the pool.
         """
-        for attempt in range(config.RATE_LIMIT_RETRIES):
+        attempts = config.RATE_LIMIT_RETRIES + len(self._keys)
+
+        for attempt in range(attempts):
+            key = self._keys.current()
+            if key is None:
+                raise AgentError(
+                    "Every Groq key has hit its daily token limit. Try again later, "
+                    "or switch MODEL — each model has its own daily budget."
+                )
             try:
-                return await self._call_model(messages, client)
+                return await self._call_model(messages, client, key.value)
             except RateLimited as exc:
+                if exc.per_day:
+                    # Rotate rather than fail: another account has its own budget.
+                    if not self._keys.retire(key):
+                        raise AgentError(
+                            "Every Groq key has hit its daily token limit. Try again "
+                            "later, or switch MODEL — each model has its own budget."
+                        ) from exc
+                    continue
+
                 # A long wait means the window is genuinely full rather than momentarily
                 # busy. Sleeping through it would leave the customer staring at a spinner
                 # and would not free capacity, so fail fast and let them retry.
                 too_long = exc.retry_after > config.MAX_THROTTLE_WAIT_SECONDS
-                if exc.per_day or too_long or attempt == config.RATE_LIMIT_RETRIES - 1:
+                if too_long or attempt == attempts - 1:
                     raise
                 delay = min(exc.retry_after + 0.25, config.MAX_THROTTLE_WAIT_SECONDS)
                 log.info("throttled, retrying in %.2fs", delay)
                 await asyncio.sleep(delay)
+
         raise AgentError("Groq is throttling requests. Try again shortly.")
 
     async def respond(
@@ -200,8 +224,8 @@ class Assistant:
         cart: Cart,
     ) -> TurnResult:
         """Run one user message to completion, mutating `history` in place."""
-        if not self._api_key:
-            raise AgentError("GROQ_API_KEY is not set on the server.")
+        if not len(self._keys):
+            raise AgentError("No Groq API key is set on the server.")
 
         history.append({"role": "user", "content": message})
         traces: list[ToolTrace] = []

@@ -41,8 +41,10 @@ async def lifespan(app: FastAPI):
     state["assistant"] = Assistant(menu)
 
     log.info("loaded %d items, %d need required choices", len(menu), menu.customisable_count)
-    if not config.GROQ_API_KEY:
-        log.warning("GROQ_API_KEY is not set — /api/chat will return 503")
+    if not config.GROQ_API_KEYS:
+        log.warning("No Groq API key is set — /api/chat will return 503")
+    else:
+        log.info("%d Groq API key(s) loaded", len(config.GROQ_API_KEYS))
     if config.ALLOW_NUTRITION_INFERENCE:
         log.warning(
             "ALLOW_NUTRITION_INFERENCE is on. The menu has no nutrition data, so any "
@@ -96,7 +98,8 @@ async def health() -> dict[str, Any]:
         "items": len(menu),
         "sessions": len(state["sessions"]),
         "model": config.MODEL,
-        "api_key_configured": bool(config.GROQ_API_KEY),
+        "api_key_configured": bool(config.GROQ_API_KEYS),
+        "keys": state["assistant"].keys.status(),
         "nutrition_inference": config.ALLOW_NUTRITION_INFERENCE,
     }
 
