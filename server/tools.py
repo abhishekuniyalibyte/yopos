@@ -50,8 +50,10 @@ def tool_definitions(menu: Menu) -> list[dict[str, Any]]:
             "name": "add_to_cart",
             "description": (
                 "Add an item to the cart. If the item has required choices you must supply "
-                "one option_id for each required step_id — search_menu lists them. Do not "
-                "guess a choice on the customer's behalf; ask them."
+                "one entry per choice, naming the step and the option exactly as "
+                "search_menu gave them — e.g. "
+                '{\"step\": \"Sauce choice\", \"option\": \"BBQ Sauce\"}. '
+                "Do not guess a choice on the customer's behalf; ask them."
             ),
             "parameters": {
                 "type": "object",
@@ -60,14 +62,23 @@ def tool_definitions(menu: Menu) -> list[dict[str, Any]]:
                     "quantity": {"type": "integer", "minimum": 1, "default": 1},
                     "choices": {
                         "type": "array",
-                        "description": "One entry per required step",
+                        "description": (
+                            "One entry per required choice, using the exact step and "
+                            "option names from search_menu's choices_required."
+                        ),
                         "items": {
                             "type": "object",
                             "properties": {
-                                "step_id": {"type": "integer"},
-                                "option_id": {"type": "integer"},
+                                "step": {
+                                    "type": "string",
+                                    "description": 'Step name, e.g. "Sauce choice"',
+                                },
+                                "option": {
+                                    "type": "string",
+                                    "description": 'Chosen option, e.g. "BBQ Sauce"',
+                                },
                             },
-                            "required": ["step_id", "option_id"],
+                            "required": ["step", "option"],
                         },
                     },
                 },

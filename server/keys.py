@@ -5,9 +5,15 @@ Groq's free tier caps tokens per day per organization. When one key's daily budg
 spent, a key from a different account is a fresh budget — so rather than failing the
 customer, the assistant moves to the next key and retries immediately.
 
-Only the DAILY cap retires a key. The short per-minute throttle is a different condition
-entirely: it clears in under a second and is handled by retrying on the same key, since
-rotating for it would burn through the pool in a few seconds of normal traffic.
+Both of Groq's limits are per-organization, so both are worth rotating on — but they
+retire a key for very different lengths of time:
+
+  daily cap (TPD)   the account is done for the day. Stand the key down for an hour.
+  per-minute (ITPM) the window is momentarily full. Stand the key down only until it
+                    resets, which Groq states precisely and is usually seconds.
+
+Rotating on the short throttle is what keeps a conversation alive: one key hitting its
+minute ceiling while three sit idle should never surface to a customer.
 
 A retired key is reinstated after RETIRE_SECONDS, because Groq's daily window rolls
 rather than resetting at midnight — a key exhausted now is usable again before long.
@@ -69,6 +75,40 @@ class KeyPool:
                 self._cursor = (self._cursor + offset) % len(self.keys)
                 return key
         return None
+
+    def seconds_until_free(self) -> float | None:
+        """
+        How long until the soonest key is usable again.
+
+        0.0 when one is free now, None when every key is out for the day — which tells
+        the caller whether waiting is worth it or the pool is genuinely exhausted.
+        """
+        if not self.keys:
+            return None
+        if self.available_count:
+            return 0.0
+
+        now = time.time()
+        soonest = min(k.spent_until for k in self.keys)
+        wait = soonest - now
+        # A wait on the order of the daily stand-down is not worth waiting out.
+        return None if wait >= RETIRE_SECONDS / 2 else max(wait, 0.0)
+
+    def cool_off(self, key: _Key, seconds: float) -> bool:
+        """
+        Stand a key down briefly after a per-minute throttle.
+
+        Unlike the daily cap this is measured in seconds, so the key rejoins the rotation
+        almost immediately. Returns True if another key can take the call right now.
+        """
+        key.spent_until = time.time() + max(seconds, 0.0)
+        self._cursor = (self._cursor + 1) % len(self.keys)
+        remaining = self.available_count
+        log.info(
+            "key %s throttled for %.1fs; %d of %d keys available",
+            key.masked, seconds, remaining, len(self.keys),
+        )
+        return remaining > 0
 
     def retire(self, key: _Key) -> bool:
         """

@@ -176,44 +176,53 @@ class Assistant:
         self, messages: list[dict[str, Any]], client: httpx.AsyncClient
     ) -> dict[str, Any]:
         """
-        Ride out Groq's rate limits, which come in two very different flavours.
+        Ride out Groq's rate limits.
 
-        A spent DAILY budget belongs to one account, so the fix is a different key —
-        retire this one and retry immediately with the next. Waiting would not help.
+        Both limits are per-organization, so BOTH are worth moving off a key for — the
+        difference is only how long that key stands down:
 
-        The short per-minute throttle clears in under a second and applies to any key on
-        that account, so it is ridden out on the same key rather than burning the pool.
+          daily cap (TPD)   the account is done for the day; stand down for an hour.
+          per-minute (ITPM) the window is momentarily full; stand down for the seconds
+                            Groq names, then the key rejoins the rotation.
+
+        Rotating on the short throttle is the important part. One key hitting its minute
+        ceiling while the others sit idle should never reach a customer, and waiting on
+        the throttled key when a fresh one is available just wastes the customer's time.
+        Sleeping is the last resort, used only when every key is cooling off at once.
         """
         attempts = config.RATE_LIMIT_RETRIES + len(self._keys)
+        spent_message = (
+            "Every Groq key has hit its daily token limit. Try again later, or switch "
+            "MODEL — each model has its own daily budget."
+        )
 
         for attempt in range(attempts):
             key = self._keys.current()
+
             if key is None:
-                raise AgentError(
-                    "Every Groq key has hit its daily token limit. Try again later, "
-                    "or switch MODEL — each model has its own daily budget."
-                )
+                # Nothing usable this instant. If it is only the short throttle, the
+                # soonest key is seconds away and worth waiting for.
+                wait = self._keys.seconds_until_free()
+                if wait is None or wait > config.MAX_THROTTLE_WAIT_SECONDS:
+                    raise AgentError(spent_message if wait is None else
+                                     "All keys are rate limited. Try again shortly.")
+                log.info("all keys cooling off, waiting %.2fs", wait)
+                await asyncio.sleep(wait + 0.25)
+                continue
+
             try:
                 return await self._call_model(messages, client, key.value)
             except RateLimited as exc:
                 if exc.per_day:
-                    # Rotate rather than fail: another account has its own budget.
-                    if not self._keys.retire(key):
-                        raise AgentError(
-                            "Every Groq key has hit its daily token limit. Try again "
-                            "later, or switch MODEL — each model has its own budget."
-                        ) from exc
+                    if not self._keys.retire(key) and self._keys.seconds_until_free() is None:
+                        raise AgentError(spent_message) from exc
                     continue
 
-                # A long wait means the window is genuinely full rather than momentarily
-                # busy. Sleeping through it would leave the customer staring at a spinner
-                # and would not free capacity, so fail fast and let them retry.
-                too_long = exc.retry_after > config.MAX_THROTTLE_WAIT_SECONDS
-                if too_long or attempt == attempts - 1:
+                # Short throttle: stand this key down for exactly as long as Groq says,
+                # and let the next key take the call immediately.
+                self._keys.cool_off(key, exc.retry_after)
+                if attempt == attempts - 1:
                     raise
-                delay = min(exc.retry_after + 0.25, config.MAX_THROTTLE_WAIT_SECONDS)
-                log.info("throttled, retrying in %.2fs", delay)
-                await asyncio.sleep(delay)
 
         raise AgentError("Groq is throttling requests. Try again shortly.")
 

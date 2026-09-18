@@ -22,6 +22,12 @@
   var API = (script && script.dataset.api) || window.location.origin;
   var TITLE = (script && script.dataset.title) || "Ask AI";
   var SESSION_KEY = "yopos_session_id";
+  var PANEL_W = 400;   // keep in sync with .yop-panel width in CSS
+  var PUSH_MIN = 900;  // below this the panel covers the page instead of pushing it
+
+  // Squeezing the host page only works if its layout follows <body>'s width. A site
+  // with its own position:fixed chrome would not move, so this is opt-out.
+  var PUSH = !(script && script.dataset.push === "off");
 
   var sessionId = null;
   try {
@@ -38,10 +44,17 @@
     "border:0;border-radius:999px;padding:13px 21px;font:600 15px system-ui,-apple-system,sans-serif;",
     "cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.2)}",
     ".yop-btn:hover{background:#b23b28}",
-    ".yop-panel{position:fixed;top:0;right:0;z-index:2147483001;width:400px;max-width:100vw;height:100vh;",
+    ".yop-btn[hidden]{display:none}",
+    ".yop-panel{position:fixed;top:0;right:0;z-index:2147483001;width:" + PANEL_W + "px;max-width:100vw;height:100vh;",
     "background:#fff;border-left:1px solid #e2e2dd;display:none;flex-direction:column;",
     "font:15px/1.55 system-ui,-apple-system,sans-serif;color:#1c1c1a;box-shadow:-6px 0 26px rgba(0,0,0,.12)}",
     ".yop-panel.yop-open{display:flex}",
+    /* The host page is squeezed, not covered: body keeps its box, just narrower.
+       Qualified with html so it outranks the host's own body{margin:0} no matter
+       which stylesheet the browser parses first. */
+    "html body.yop-pushed{margin-right:" + PANEL_W + "px;transition:margin-right .22s ease}",
+    "@media(prefers-reduced-motion:reduce){html body.yop-pushed{transition:none}}",
+    "@media(max-width:" + (PUSH_MIN - 1) + "px){html body.yop-pushed{margin-right:0}}",
     ".yop-head{padding:13px 15px;border-bottom:1px solid #e2e2dd;display:flex;align-items:center;gap:10px}",
     ".yop-head .yop-t{font-weight:600;flex:1}",
     ".yop-head button{background:none;border:0;font-size:21px;line-height:1;cursor:pointer;color:#6b6b66}",
@@ -59,7 +72,7 @@
     ".yop-form input{flex:1;padding:10px 12px;border:1px solid #e2e2dd;border-radius:9px;font:inherit;color:inherit}",
     ".yop-form button{background:#c8452f;color:#fff;border:0;border-radius:9px;padding:0 16px;font:600 15px inherit;cursor:pointer}",
     ".yop-form button:disabled{opacity:.5;cursor:default}",
-    "@media(max-width:460px){.yop-panel{width:100vw}}"
+    "@media(max-width:" + (PUSH_MIN - 1) + "px){.yop-panel{width:100vw}}"
   ].join("");
 
   /* ------------------------------------------------------------------- dom */
@@ -187,9 +200,15 @@
   });
 
   /* ---------------------------------------------------------------- open */
+  function setOpen(open) {
+    panel.classList.toggle("yop-open", open);
+    button.hidden = open;
+    if (PUSH) document.body.classList.toggle("yop-pushed", open);
+  }
+
   var greeted = false;
   button.addEventListener("click", function () {
-    panel.classList.add("yop-open");
+    setOpen(true);
     input.focus();
     if (greeted) return;
     greeted = true;
@@ -205,10 +224,10 @@
   });
 
   closeBtn.addEventListener("click", function () {
-    panel.classList.remove("yop-open");
+    setOpen(false);
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") panel.classList.remove("yop-open");
+    if (event.key === "Escape") setOpen(false);
   });
 })();

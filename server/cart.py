@@ -109,6 +109,55 @@ class CartError(ValueError):
         return {"error": self.message, **self.detail}
 
 
+def _index_choices(item, choices: list[dict[str, Any]]) -> dict[int, Any]:
+    """
+    Resolve the model's choices to real Options, keyed by step.
+
+    A choice may name its option by `option_id` or by `option` / `name` — search results
+    carry option NAMES but not ids, so requiring ids forced the model to submit a doomed
+    add, read the ids out of the refusal, and try again. That cost a round-trip per step
+    (three for a meal) and burned rate limit for nothing.
+
+    A step may also be identified by `step_id` or by its `label`. Matching is exact but
+    case- and space-insensitive; anything unrecognised resolves to None so the caller
+    reports it as an invalid choice rather than silently dropping it.
+    """
+    def norm(text: Any) -> str:
+        return " ".join(str(text).split()).casefold()
+
+    by_step = {s.step_id: s for s in item.steps}
+    by_label = {norm(s.label): s for s in item.steps}
+
+    resolved: dict[int, Any] = {}
+    for choice in choices:
+        if not isinstance(choice, dict):
+            continue
+
+        step = by_step.get(choice.get("step_id"))
+        if step is None:
+            for field in ("step", "label", "step_label"):
+                step = by_label.get(norm(choice.get(field, "")))
+                if step is not None:
+                    break
+        if step is None:
+            continue
+
+        option = None
+        if "option_id" in choice:
+            option = step.option(choice["option_id"])
+        if option is None:
+            for field in ("option", "name", "option_name", "value", "choice"):
+                wanted = choice.get(field)
+                if wanted is None:
+                    continue
+                option = next((o for o in step.options if norm(o.name) == norm(wanted)), None)
+                if option is not None:
+                    break
+
+        resolved[step.step_id] = option
+    return resolved
+
+
 class Cart:
     """Validates every operation against the menu before touching the backend."""
 
@@ -135,7 +184,7 @@ class Cart:
         if quantity > self.MAX_QUANTITY:
             raise CartError(f"Maximum {self.MAX_QUANTITY} of a single item per order.")
 
-        supplied = {c["step_id"]: c["option_id"] for c in (choices or []) if "step_id" in c}
+        supplied = _index_choices(item, choices or [])
         resolved: list[Choice] = []
 
         for step in item.required_steps:
@@ -145,11 +194,10 @@ class Cart:
                     f'"{item.name}" needs a {step.label} before it can be added.',
                     {"missing_step": step.as_prompt},
                 )
-            option = step.option(supplied[step.step_id])
+            option = supplied[step.step_id]
             if option is None:
                 raise CartError(
-                    f"option_id {supplied[step.step_id]} is not valid for "
-                    f'"{step.label}" on {item.name}.',
+                    f'That is not one of the "{step.label}" options on {item.name}.',
                     {"valid_options": step.as_prompt},
                 )
             resolved.append(
@@ -160,7 +208,7 @@ class Cart:
         for step in item.steps:
             if step.required or step.step_id not in supplied:
                 continue
-            option = step.option(supplied[step.step_id])
+            option = supplied[step.step_id]
             if option is not None:
                 resolved.append(
                     Choice(step.step_id, step.label, option.option_id, option.name, option.extra_price)

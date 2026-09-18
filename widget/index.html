@@ -46,7 +46,13 @@
     border-bottom: 1px solid var(--line);
     padding: 11px 20px;
     overflow-x: auto;
+    scrollbar-width: none;
+    /* The strip scrolls; fade the right edge so a cut-off pill reads as "more
+       this way" rather than as a clipping bug when the AI panel narrows the page. */
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
   }
+  nav::-webkit-scrollbar { display: none; }
   nav .inner { display: flex; gap: 7px; }
   nav button {
     flex-shrink: 0;

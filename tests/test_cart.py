@@ -116,7 +116,7 @@ def test_option_from_another_step_is_refused(cart: Cart) -> None:
             item_id=1,
             choices=[{"step_id": 10, "option_id": 110}, {"step_id": 11, "option_id": 110}],
         )
-    assert "not valid" in str(exc.value)
+    assert "not one of" in str(exc.value)
 
 
 def test_invented_option_id_is_refused(cart: Cart) -> None:
@@ -239,3 +239,84 @@ def test_search_results_stay_small(menu: Menu, cart: Cart) -> None:
 
 def test_unknown_tool_is_reported(menu: Menu, cart: Cart) -> None:
     assert "error" in run_tool("place_order", {}, menu, cart)
+
+
+# ------------------------------------------------- choosing options by name
+
+def test_choices_can_be_given_by_name(cart: Cart) -> None:
+    """
+    search_menu returns option NAMES, not ids. Requiring ids forced the model to submit a
+    doomed add just to read the ids out of the refusal — a wasted call per step.
+    """
+    result = cart.add(
+        item_id=1,
+        choices=[
+            {"step": "Sauce choice", "option": "Chilli Sauce"},
+            {"step": "Salad choice", "option": "No Salad"},
+        ],
+    )
+    assert result["choices"] == ["Sauce choice: Chilli Sauce", "Salad choice: No Salad"]
+
+
+def test_name_matching_ignores_case_and_spacing(cart: Cart) -> None:
+    cart.add(
+        item_id=1,
+        choices=[
+            {"step": "sauce  CHOICE", "option": "  mayo "},
+            {"step": "Salad choice", "option": "salad"},
+        ],
+    )
+    assert cart.total == 6.50
+
+
+def test_option_ids_still_work(cart: Cart) -> None:
+    """The old id form must keep working; the model may use either."""
+    cart.add(
+        item_id=1,
+        choices=[{"step_id": 10, "option_id": 100}, {"step_id": 11, "option_id": 110}],
+    )
+    assert cart.total == 6.50
+
+
+def test_id_and_name_forms_can_be_mixed(cart: Cart) -> None:
+    cart.add(
+        item_id=1,
+        choices=[{"step_id": 10, "option": "Mayo"}, {"step": "Salad choice", "option_id": 110}],
+    )
+    assert cart.total == 6.50
+
+
+def test_an_option_that_is_not_on_the_menu_is_refused_by_name(cart: Cart) -> None:
+    """"Ketchup" is not on this menu, however plausible it sounds."""
+    with pytest.raises(CartError) as exc:
+        cart.add(
+            item_id=1,
+            choices=[
+                {"step": "Sauce choice", "option": "Ketchup"},
+                {"step": "Salad choice", "option": "No Salad"},
+            ],
+        )
+    assert "not one of" in str(exc.value)
+
+
+def test_an_option_borrowed_from_another_step_is_refused_by_name(cart: Cart) -> None:
+    with pytest.raises(CartError):
+        cart.add(
+            item_id=1,
+            choices=[
+                {"step": "Sauce choice", "option": "No Salad"},
+                {"step": "Salad choice", "option": "No Salad"},
+            ],
+        )
+
+
+def test_an_unknown_step_name_leaves_the_step_unanswered(cart: Cart) -> None:
+    with pytest.raises(CartError) as exc:
+        cart.add(
+            item_id=1,
+            choices=[
+                {"step": "Topping choice", "option": "Mayo"},
+                {"step": "Salad choice", "option": "Salad"},
+            ],
+        )
+    assert exc.value.detail["missing_step"]["label"] == "Sauce choice"
