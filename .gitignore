@@ -3,7 +3,7 @@
 
 # client data
 menu.json
-project_detail.txt
+project_detail.md
 
 # python
 .venv/

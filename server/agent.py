@@ -239,6 +239,7 @@ class Assistant:
         history.append({"role": "user", "content": message})
         traces: list[ToolTrace] = []
         replies: list[str] = []
+        turn: dict[str, Any] = {}  # per-message tool limits; see run_tool
 
         async with httpx.AsyncClient(timeout=60.0) as client:
             for _ in range(config.MAX_TOOL_HOPS):
@@ -263,7 +264,7 @@ class Assistant:
                         output = {"error": f"Arguments for {name} were not valid JSON."}
                         parsed = {}
                     else:
-                        output = run_tool(name, parsed, self._menu, cart)
+                        output = run_tool(name, parsed, self._menu, cart, turn)
 
                     traces.append(ToolTrace(name, parsed, "error" not in output))
                     history.append(

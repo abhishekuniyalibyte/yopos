@@ -237,6 +237,54 @@ def test_search_results_stay_small(menu: Menu, cart: Cart) -> None:
     assert len(blob) / 4 < 600, f"search result grew to ~{len(blob)//4} tokens"
 
 
+def test_names_mode_never_carries_choices(menu: Menu, cart: Cart) -> None:
+    out = run_tool("search_menu", {"detail": "names", "max_price": 100}, menu, cart)
+    assert out["items"]
+    for item in out["items"]:
+        assert set(item) == {"item_id", "name", "price"}
+
+
+def test_only_one_extra_page_per_turn(menu: Menu, cart: Cart) -> None:
+    """The prompt says wait for the customer before paging; this makes it a guarantee."""
+    turn: dict = {}
+    assert "error" not in run_tool("search_menu", {"offset": 1}, menu, cart, turn)
+    assert "error" in run_tool("search_menu", {"offset": 2}, menu, cart, turn)
+
+
+def test_first_pages_do_not_count_against_the_page_limit(menu: Menu, cart: Cart) -> None:
+    turn: dict = {}
+    for _ in range(3):
+        assert "error" not in run_tool("search_menu", {"query": "cola"}, menu, cart, turn)
+    assert "error" not in run_tool("search_menu", {"offset": 1}, menu, cart, turn)
+
+
+def test_page_limit_resets_on_a_new_turn(menu: Menu, cart: Cart) -> None:
+    run_tool("search_menu", {"offset": 1}, menu, cart, {})
+    assert "error" not in run_tool("search_menu", {"offset": 1}, menu, cart, {})
+
+
+def test_lookup_by_item_id_returns_that_item_with_choices(menu: Menu, cart: Cart) -> None:
+    out = run_tool("search_menu", {"item_id": 1, "query": "cola"}, menu, cart)
+    assert out["count"] == 1
+    assert out["items"][0]["item_id"] == 1
+    assert "Sauce choice" in out["items"][0]["choices_required"]
+
+
+def test_lookup_of_unknown_item_id_is_an_error(menu: Menu, cart: Cart) -> None:
+    assert "error" in run_tool("search_menu", {"item_id": 999}, menu, cart)
+
+
+def test_offset_past_the_end_returns_nothing_but_the_true_count(menu: Menu, cart: Cart) -> None:
+    out = run_tool("search_menu", {"offset": 50}, menu, cart)
+    assert out["items"] == []
+    assert out["count"] == len(menu)
+    assert "next_offset" not in out
+
+
+def test_unknown_detail_level_is_an_error(menu: Menu, cart: Cart) -> None:
+    assert "error" in run_tool("search_menu", {"detail": "everything"}, menu, cart)
+
+
 def test_unknown_tool_is_reported(menu: Menu, cart: Cart) -> None:
     assert "error" in run_tool("place_order", {}, menu, cart)
 

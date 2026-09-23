@@ -18,7 +18,7 @@ menu.json ──clean_menu.py──> menu_clean.json ──> server/ <── wid
 ```bash
 source .venv/bin/activate
 uvicorn server.app:app --reload     # serves API + storefront at localhost:8000
-pytest -q                            # 57 tests, no API key needed
+pytest -q                            # 87 tests, no API key needed
 python3 clean_menu.py                # regenerate menu_clean.json from menu.json
 ```
 
@@ -40,7 +40,7 @@ back from `search_menu`. This has been broken twice (see "Bugs worth not repeati
 treat any change to search results or the prompt as touching a load-bearing rule.
 
 **Never commit `.env`.** It holds live Groq keys. `.gitignore` covers it; also covers
-`menu.json` and `project_detail.txt` as client data.
+`menu.json` and `project_detail.md` as client data.
 
 ## Architecture
 
@@ -72,6 +72,18 @@ against that same 7k/minute ceiling. `SEARCH_LIMIT = 8` and results are trimmed 
 `item_id`, `name`, `price` and option *names*. There is a test asserting search results
 stay under ~600 tokens — if it fails, do not raise the threshold without understanding
 why the limit exists.
+
+**Listing uses a lighter mode, and paging is capped.** `detail="names"` drops choices and
+returns up to `NAMES_LIMIT = 30` items (id, name, price) — enough for the largest category,
+Burgers (27), in one call. 40 was measured and did not fit under 600 tokens. When more
+than 30 match, names mode returns a per-category breakdown instead of items. Decide that
+by match *count*: an earlier guard keyed on "was a filter passed?" was bypassed by
+`max_price=1000`, `query=""` and `meal_time="dinner"`, which all match the whole menu.
+Full mode returns `next_offset`, and `run_tool` allows **one** page with `offset > 0` per
+customer message (`MAX_EXTRA_PAGES_PER_TURN`, state passed in by the agent) — paging all
+135 in one turn measured ~17k input tokens against the 7k/minute cap, and a prompt rule
+alone cannot guarantee the model won't. Once the customer picks an item,
+`search_menu(item_id=...)` fetches it with its choices.
 
 **Choices are matched by name, not id.** `search_menu` returns option names but not ids.
 Requiring ids forced the model to submit a doomed `add_to_cart`, read the ids out of the

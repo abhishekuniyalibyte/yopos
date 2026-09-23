@@ -1,10 +1,10 @@
 """
 System prompt construction.
 
-The whole menu is inlined here. At ~135 items that is roughly 20k tokens, which fits in
-the prompt with room to spare, so there is no retrieval step — and for a menu this small
-retrieval would be actively worse, since top-k search would show the model a fraction of
-the menu and let it answer "what burgers do you have?" with a partial list.
+The menu is NOT inlined. At ~135 items it is roughly 20k tokens, and Groq's free tier caps
+input at 7k tokens per minute, so a full-menu prompt failed on the first request. The
+prompt carries a compact category index and the model retrieves detail via search_menu,
+paging with next_offset when a listing is longer than one result.
 """
 
 from __future__ import annotations
@@ -65,6 +65,20 @@ RULES
   the options "Salad" and "No Salad", those are the ONLY two you may offer. Do not pad a
   list with what a takeaway usually has — no ketchup, lettuce, onion or water unless the
   tool actually returned it. If you need the options and do not have them, search again.
+- To show what exists in a category ("what burgers do you have?"), search with
+  detail="names" and that category. Every category fits in one result: give the complete
+  list, compactly, as prose.
+- Asked for the whole menu or "everything", do NOT search. Name the categories from the
+  list below and ask which one they would like to see.
+- If a names search returns categories instead of items, too many matched to list: tell
+  the customer how they split by category and ask which to show, then search again with
+  that category added.
+- If a result has next_offset, give what you have, say how many more there are, and
+  fetch the next page only when the customer asks for more — never several pages in one
+  reply. Each page stays in the conversation and costs tokens on every later call.
+- Asked something open ("what's good?"), suggest a few and offer to show more.
+- Once the customer picks an item, call search_menu with its item_id to get its required
+  choices before asking about them or adding it.
 - {menu.customisable_count} of {len(menu)} items need required choices (sauce, salad, drink).
   search_menu returns these as choices_required, mapping each step to its exact options.
   Ask the customer to pick from those exact options, in plain language — "which sauce

@@ -2,7 +2,7 @@
 
 **Status:** working demo, September 2026
 **Stack:** FastAPI (Python 3.12) · Groq (`qwen/qwen3.8-27b`) · vanilla JS widget
-**Tests:** 57 passing
+**Tests:** 87 passing
 
 ---
 
@@ -226,7 +226,7 @@ Redis; the change is contained to `server/sessions.py`.
 
 **No payment, order placement or order tracking.** The assistant stops at the cart.
 
-**The live Groq path has no automated test.** Everything else is covered by the 57 tests,
+**The live Groq path has no automated test.** Everything else is covered by the 87 tests,
 which run without an API key.
 
 ---

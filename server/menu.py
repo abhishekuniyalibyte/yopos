@@ -153,10 +153,14 @@ class Menu:
         meal_time: str | None = None,
         max_price: float | None = None,
         limit: int = 25,
+        offset: int = 0,
     ) -> tuple[list[Item], int]:
         """
         Filter the menu. Returns (page, total_matches) so the model can be told when its
         query was too broad instead of silently seeing a truncated list.
+
+        Ordering is total — item_id breaks ties between same-named items — so paging with
+        `offset` visits every match exactly once.
         """
         results = list(self)
 
@@ -172,8 +176,9 @@ class Menu:
         if max_price is not None:
             results = [i for i in results if i.price <= max_price]
 
-        results.sort(key=lambda i: (i.category, i.name))
-        return results[:limit], len(results)
+        results.sort(key=lambda i: (i.category, i.name, i.item_id))
+        offset = max(offset, 0)
+        return results[offset:offset + limit], len(results)
 
     def prompt_payload(self) -> list[dict[str, Any]]:
         """
