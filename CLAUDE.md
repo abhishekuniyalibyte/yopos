@@ -39,8 +39,10 @@ too — not in the prompt, not in the tool wrapper.
 back from `search_menu`. This has been broken twice (see "Bugs worth not repeating"), so
 treat any change to search results or the prompt as touching a load-bearing rule.
 
-**Never commit `.env`.** It holds live Groq keys. `.gitignore` covers it; also covers
-`menu.json` and `project_detail.md` as client data.
+**Never commit `.env`.** It holds live Groq keys, and `.gitignore` covers it. Nothing else
+is ignored: `menu.json` (the client's full export) and `project_detail.md` (the brief and
+internal notes) are committed on purpose. The GitHub repo is **public**, so everything
+committed is published — don't add anything to a tracked file that shouldn't be public.
 
 ## Architecture
 
@@ -48,16 +50,18 @@ treat any change to search results or the prompt as touching a load-bearing rule
 |---|---|
 | `clean_menu.py` | 2.3 MB client export → 135-item clean JSON. Never edit the output by hand. |
 | `menu_mapping.json` | **Our** editorial decisions: meal-time tags, step labels, exclusions. Kept separate from client data on purpose. |
-| `server/menu.py` | Loads the menu. The source of truth every id is checked against. |
+| `server/menu.py` | Loads the menu. The source of truth every id is checked against. `category_in` detects a category named in a message. |
 | `server/cart.py` | Cart state **and all validation**. The layer between model output and an order. |
 | `server/tools.py` | Tool schemas (OpenAI function-calling format) + dispatcher. |
 | `server/prompts.py` | System prompt, including the nutrition rules and output formatting. |
-| `server/agent.py` | Groq call, tool loop, rate-limit handling. |
+| `server/agent.py` | Groq call, tool loop, rate-limit handling, and turning the reply into item tiles. |
 | `server/keys.py` | API key rotation across multiple Groq accounts. |
 | `server/sessions.py` | Per-visitor history and cart, TTL'd. In-process — single instance only. |
 | `server/app.py` | FastAPI routes. |
 | `widget/widget.js` | Embeddable frontend. No framework, no build step, no API key. |
 | `widget/index.html` | Demo storefront, served at `/`. |
+| `PROJECT.md` | Project report for stakeholders. |
+| `project_detail.md` | The client brief, the pre-build question list and each question's status. |
 
 ## Constraints that shaped the design
 
@@ -104,19 +108,29 @@ and `- bullets` appear as literal characters. `server/prompts.py` instructs the 
 write in prose. If you change the widget to render markdown, relax that section — and if
 you change that section, check the widget still displays sensibly.
 
-**Item tiles.** The model ends a reply with `ITEMS: id, id` to show those items as
-clickable tiles. `Assistant._tiles` in `server/agent.py` strips the line, drops any id
-`search_menu` has not returned in this conversation, and builds each tile from the menu —
-the model chooses which items appear, never what a tile says. Earlier turns' searches
-count, because "show me the names" is usually answered without a fresh search. With no
-`ITEMS` line it falls back to searched items the reply names verbatim, then to this
-turn's `detail="names"` listing. The model answers "do you have starters?" from the
-category index in the prompt and skips the search no matter what the prompt says, so when
-a message names one category (`Menu.category_in`) the first hop forces
-`tool_choice=search_menu`. Sentences naming 3+
-tiled items are cut from the text (lead-in before a colon and questions are kept), and a
-turn that changed the cart gets no tiles. Clicking a tile sends "I'd like the <name>". `/` and `/widget.js` are served
-`Cache-Control: no-cache`: without it Chrome kept running a stale widget after a change.
+## Item tiles
+
+Items the assistant offers render as clickable tiles under its reply (name, category,
+price, an "Options" tag if the item has required choices). Clicking one sends "I'd like
+the <name>" as the customer's next message.
+
+- **The model picks which items; the menu says what they are.** The model ends a reply
+  with `ITEMS: id, id`. `Assistant._tiles` in `server/agent.py` strips the line, drops any
+  id `search_menu` has not returned in this conversation, and builds every tile from
+  `Menu`. Never render a name or price from model text.
+- **Earlier turns' searches count.** "Show me the names" is usually answered without a
+  fresh search. Scoping ids to the current turn produced zero tiles on exactly that turn.
+- **Fallbacks, in order:** the `ITEMS` line; searched items the reply names verbatim
+  (longest name first, so "Double Cheeseburger Meal" doesn't also match "Double
+  Cheeseburger"); this turn's `detail="names"` listing.
+- **Category questions force a search.** The model answers "do you have starters?" from
+  the category index in the prompt — a count, no items — whatever the prompt says. When a
+  message names exactly one category (`Menu.category_in`), the first hop sends
+  `tool_choice=search_menu`. Later hops are `auto`.
+- **The text doesn't repeat the tiles.** Sentences naming 3+ tiled items are cut; a
+  lead-in before a colon and any question are kept.
+- **No tiles on a turn that changed the cart.** That reply is a confirmation, and the cart
+  panel already shows the items.
 
 ## Bugs worth not repeating
 
@@ -130,6 +144,14 @@ turn that changed the cart gets no tiles. Clicking a tile sends "I'd like the <n
 4. **Scratch venv masking a real failure.** `pytest` passed in a throwaway venv and failed
    for the user because the project root was on `sys.path` there but not here. `pytest.ini`
    now sets `pythonpath = .`. Verify in the project's own environment.
+5. **A stale widget in the browser.** The server was returning tiles and the user saw none:
+   `widget.js` went out with no `Cache-Control`, so Chrome kept running the old copy. `/`
+   and `/widget.js` are now served `no-cache`. When a widget change "doesn't work", check
+   the API response with curl before touching the code.
+6. **Trusting the prompt to make the model search.** "Always call search_menu" and "never
+   answer with just a count" were both in the prompt and both ignored for category
+   questions. If a behaviour must happen, enforce it in code (`tool_choice`, `run_tool`
+   limits) — the prompt is a request, not a guarantee.
 
 ## Known data problems in the client's export
 

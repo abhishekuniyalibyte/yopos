@@ -2,7 +2,7 @@
 
 **Status:** working demo, September 2026
 **Stack:** FastAPI (Python 3.12) · Groq (`qwen/qwen3.8-27b`) · vanilla JS widget
-**Tests:** 87 passing
+**Tests:** 100 passing
 
 ---
 
@@ -89,6 +89,16 @@ rounds of rate-limit work all left the safety logic untouched.
 `widget/widget.js` is the whole integration — one `<script>` tag, no framework, no build
 step, no API key in the browser. It has to work regardless of what the real YOPOS site is
 built in, which we cannot see.
+
+When the assistant offers items, they appear as **tiles** under its reply — name,
+category, price, and an "Options" tag if the item needs choices. Clicking a tile picks that
+item in the conversation, and the assistant goes on to ask about sauce, salad or drink.
+Replies stay short: "Here are our 27 burgers, from £3.49 to £6.49. Which one would you
+like?" with the burgers as tiles underneath, rather than a paragraph of names and prices.
+
+The tiles follow the same rule as the cart. The model chooses *which* items to show;
+their names and prices come from the menu, never from the model's text, and only items a
+real menu search has returned can appear.
 
 `widget/index.html` is a demo storefront serving all 135 items with category filters and a
 live open/closed badge computed from the store's real per-day hours.
@@ -197,8 +207,30 @@ surfaced, and the two cases branch properly.
 
 Key rotation across multiple Groq accounts handles both: a daily-capped key stands down
 for an hour, a throttled key for the seconds Groq specifies, and the next key takes the
-call immediately. The four keys in use were confirmed to be separate accounts — their
-token budgets move independently — so rotation gives roughly 4× headroom.
+call immediately. The first four keys were confirmed to be separate accounts — their
+token budgets move independently. Seven keys are now configured; if all seven are separate
+accounts, rotation gives roughly 7× the headroom of one.
+
+### Items shown as tiles — three reasons they didn't appear
+
+Tiles were built and tested, and the first live conversations still showed none. There
+were three separate causes:
+
+1. **The model answered from memory.** Asked "show me the burger names" after an earlier
+   search, it listed them without searching again. Tiles were limited to items searched
+   in the *same* turn, so every one was dropped. They now accept any item a search has
+   returned in the conversation.
+2. **The model answered from the category index.** Asked "do we have starters?", it read
+   "Starters: 10 items, £1.49–£3.49" from its instructions and replied with that — no
+   search, so no items. Stronger instructions did not change this. Now, when a message
+   names a category, the server requires the model's first step to be a menu search.
+3. **The browser kept the old widget.** The server was already returning tiles; the
+   browser was running a cached copy of the widget from before the change. The widget
+   and storefront are now served with headers that make the browser check for a new
+   version on every load.
+
+The general lesson, which the rate-limit work had already suggested: **an instruction in
+the prompt is a request, not a guarantee.** Anything that must happen is enforced in code.
 
 ---
 
@@ -212,6 +244,8 @@ token budgets move independently — so rotation gives roughly 4× headroom.
 | Vanilla JS widget, no framework | The real site's stack is unknown and inaccessible. |
 | Key in the backend, never the browser | The one non-negotiable of the production shape, kept even in the demo. |
 | Data errors surfaced, not hidden | The £100 burger is visible on the storefront so it can be raised with whoever owns the data. |
+| Tiles built from menu data, not model text | Same principle as the cart: the model can choose badly, but it cannot put a wrong name or price in front of a customer. |
+| Must-happen behaviour enforced in code | The model ignored prompt rules on searching; forcing the tool call made it reliable. |
 
 ---
 
@@ -226,8 +260,17 @@ Redis; the change is contained to `server/sessions.py`.
 
 **No payment, order placement or order tracking.** The assistant stops at the cart.
 
-**The live Groq path has no automated test.** Everything else is covered by the 87 tests,
-which run without an API key.
+**The live Groq path has no automated test.** Everything else is covered by the 100 tests,
+which run without an API key. Tile behaviour was checked by hand against the live model.
+
+**Nutrition inference is still on.** Calorie figures the assistant gives in that mode are
+guesses from item names (§4). Turn `ALLOW_NUTRITION_INFERENCE` off before any real
+customer uses it.
+
+**The repository is public and includes client data.** `menu.json` (the client's full
+export), `menu_clean.json` (their menu, address and phone number) and `project_detail.md`
+are all committed. If the client has not agreed to that, the repository should be made
+private.
 
 ---
 
@@ -245,3 +288,5 @@ Most of the original question list was resolved by the demo scope. These remain:
    immediately.
 5. **Currency** — `country_currency` holds a rupee symbol; the address and prices are
    clearly GBP. We assume GBP.
+6. **Public repository** — the client's menu export, address and phone number are in a
+   public GitHub repository. Is that acceptable to them?
