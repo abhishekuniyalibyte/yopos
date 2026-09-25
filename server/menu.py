@@ -9,6 +9,7 @@ or an option that belongs to a different step fails here rather than downstream.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterator
@@ -179,6 +180,28 @@ class Menu:
         results.sort(key=lambda i: (i.category, i.name, i.item_id))
         offset = max(offset, 0)
         return results[offset:offset + limit], len(results)
+
+    def category_in(self, text: str) -> str | None:
+        """
+        The one category `text` names, singular or plural ("burger", "Pies"), or None
+        if it names none or several.
+        """
+        lowered = text.lower()
+        named = []
+        for category in self.categories:
+            forms = set()
+            for part in category.lower().split("&"):
+                part = part.strip()
+                forms.add(part)
+                if part.endswith("ies"):
+                    forms.add(part[:-3] + "y")
+                elif part.endswith("xes"):
+                    forms.add(part[:-2])
+                elif part.endswith("s"):
+                    forms.add(part[:-1])
+            if any(re.search(rf"\b{re.escape(f)}\b", lowered) for f in forms if f):
+                named.append(category)
+        return named[0] if len(named) == 1 else None
 
     def prompt_payload(self) -> list[dict[str, Any]]:
         """

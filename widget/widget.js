@@ -64,6 +64,17 @@
     ".yop-me{background:#c8452f;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}",
     ".yop-err{background:#fdecea;color:#8d2b1c;align-self:flex-start;font-size:13px}",
     ".yop-typing{align-self:flex-start;color:#6b6b66;font-size:13px}",
+    ".yop-tiles{align-self:stretch;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}",
+    ".yop-tile{display:flex;flex-direction:column;gap:3px;text-align:left;background:#fff;border:1px solid #e2e2dd;",
+    "border-radius:10px;padding:9px 11px;font:inherit;color:inherit;cursor:pointer;transition:border-color .15s,box-shadow .15s}",
+    ".yop-tile:hover:not(:disabled){border-color:#c8452f;box-shadow:0 2px 8px rgba(200,69,47,.14)}",
+    ".yop-tile:focus-visible{outline:2px solid #c8452f;outline-offset:1px}",
+    ".yop-tile:disabled{cursor:default;opacity:.6}",
+    ".yop-tile-n{font-weight:600;font-size:14px;line-height:1.3;overflow-wrap:anywhere}",
+    ".yop-tile-c{color:#6b6b66;font-size:12px}",
+    ".yop-tile-f{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-top:auto;padding-top:3px}",
+    ".yop-tile-p{color:#c8452f;font-weight:600}",
+    ".yop-tile-o{color:#6b6b66;font-size:11.5px}",
     ".yop-cart{border-top:1px solid #e2e2dd;padding:10px 15px;font-size:13px;background:#fafaf8;max-height:34vh;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}",
     ".yop-ln{display:flex;justify-content:space-between;gap:10px;padding:2px 0}",
     ".yop-sub{color:#6b6b66}",
@@ -127,6 +138,37 @@
     return "£" + Number(n).toFixed(2);
   }
 
+  // Tiles come from the server's menu data, not the model's text. Clicking one picks
+  // that item in the conversation, so the assistant can ask about its choices.
+  function renderTiles(items) {
+    if (!items || !items.length) return;
+    var grid = el("div", "yop-tiles");
+    items.forEach(function (item) {
+      var tile = el("button", "yop-tile");
+      tile.type = "button";
+      tile.appendChild(el("span", "yop-tile-n", item.name));
+      tile.appendChild(el("span", "yop-tile-c", item.category));
+      var foot = el("span", "yop-tile-f");
+      foot.appendChild(el("span", "yop-tile-p", money(item.price)));
+      if (item.has_choices) foot.appendChild(el("span", "yop-tile-o", "Options"));
+      tile.appendChild(foot);
+      tile.setAttribute("aria-label", item.name + ", " + money(item.price));
+      tile.addEventListener("click", function () {
+        ask("I'd like the " + item.name);
+      });
+      grid.appendChild(tile);
+    });
+    log.appendChild(grid);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function setBusy(on) {
+    busy = on;
+    send.disabled = on;
+    var tiles = log.querySelectorAll(".yop-tile");
+    for (var i = 0; i < tiles.length; i++) tiles[i].disabled = on;
+  }
+
   function renderCart(cart) {
     cartBox.textContent = "";
     if (!cart || !cart.lines || !cart.lines.length) {
@@ -165,15 +207,11 @@
     });
   }
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var text = input.value.trim();
+  function ask(text) {
     if (!text || busy) return;
 
     say("yop-me", text);
-    input.value = "";
-    busy = true;
-    send.disabled = true;
+    setBusy(true);
     var typing = say("yop-typing", "…");
 
     post(text)
@@ -186,6 +224,7 @@
           /* ignore */
         }
         say("yop-bot", data.reply);
+        renderTiles(data.items);
         renderCart(data.cart);
       })
       .catch(function (err) {
@@ -193,10 +232,17 @@
         say("yop-err", err.message);
       })
       .finally(function () {
-        busy = false;
-        send.disabled = false;
+        setBusy(false);
         input.focus();
       });
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var text = input.value.trim();
+    if (!text || busy) return;
+    input.value = "";
+    ask(text);
   });
 
   /* ---------------------------------------------------------------- open */

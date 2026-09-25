@@ -18,7 +18,7 @@ menu.json ──clean_menu.py──> menu_clean.json ──> server/ <── wid
 ```bash
 source .venv/bin/activate
 uvicorn server.app:app --reload     # serves API + storefront at localhost:8000
-pytest -q                            # 87 tests, no API key needed
+pytest -q                            # 100 tests, no API key needed
 python3 clean_menu.py                # regenerate menu_clean.json from menu.json
 ```
 
@@ -103,6 +103,20 @@ The chat widget renders replies as **plain text**. Markdown is not parsed, so `*
 and `- bullets` appear as literal characters. `server/prompts.py` instructs the model to
 write in prose. If you change the widget to render markdown, relax that section — and if
 you change that section, check the widget still displays sensibly.
+
+**Item tiles.** The model ends a reply with `ITEMS: id, id` to show those items as
+clickable tiles. `Assistant._tiles` in `server/agent.py` strips the line, drops any id
+`search_menu` has not returned in this conversation, and builds each tile from the menu —
+the model chooses which items appear, never what a tile says. Earlier turns' searches
+count, because "show me the names" is usually answered without a fresh search. With no
+`ITEMS` line it falls back to searched items the reply names verbatim, then to this
+turn's `detail="names"` listing. The model answers "do you have starters?" from the
+category index in the prompt and skips the search no matter what the prompt says, so when
+a message names one category (`Menu.category_in`) the first hop forces
+`tool_choice=search_menu`. Sentences naming 3+
+tiled items are cut from the text (lead-in before a colon and questions are kept), and a
+turn that changed the cart gets no tiles. Clicking a tile sends "I'd like the <name>". `/` and `/widget.js` are served
+`Cache-Control: no-cache`: without it Chrome kept running a stale widget after a change.
 
 ## Bugs worth not repeating
 

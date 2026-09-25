@@ -28,6 +28,11 @@ log = logging.getLogger("yopos")
 
 state: dict[str, Any] = {}
 
+# Without this, browsers may heuristically cache widget.js for hours and keep running an
+# old copy after a deploy — the tiles shipped and a customer's tab never saw them.
+# no-cache still allows the cached copy; it just revalidates against the ETag first.
+NO_CACHE = {"cache-control": "no-cache"}
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -80,6 +85,7 @@ class ChatResponse(BaseModel):
     session_id: str
     cart: dict[str, Any]
     tools: list[ToolTraceOut] = []
+    items: list[dict[str, Any]] = []  # menu items to show as tiles under the reply
 
 
 def get_session(request: ChatRequest) -> Session:
@@ -129,6 +135,7 @@ async def chat(request: ChatRequest, session: Session = Depends(get_session)) ->
         session_id=session.session_id,
         cart=result.cart,
         tools=[ToolTraceOut(name=t.name, ok=t.ok) for t in result.tools],
+        items=result.items,
     )
 
 
@@ -154,7 +161,7 @@ async def storefront() -> FileResponse:
     path = config.BASE_DIR / "widget" / "index.html"
     if not path.exists():
         raise HTTPException(404, "index.html not found")
-    return FileResponse(path, media_type="text/html")
+    return FileResponse(path, media_type="text/html", headers=NO_CACHE)
 
 
 @app.get("/widget.js")
@@ -163,4 +170,4 @@ async def widget(request: Request) -> FileResponse:
     path = config.BASE_DIR / "widget" / "widget.js"
     if not path.exists():
         raise HTTPException(404, "widget.js not found")
-    return FileResponse(path, media_type="application/javascript")
+    return FileResponse(path, media_type="application/javascript", headers=NO_CACHE)

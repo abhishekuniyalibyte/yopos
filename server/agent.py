@@ -20,6 +20,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -108,6 +109,25 @@ class TurnResult:
     reply: str
     cart: dict[str, Any]
     tools: list[ToolTrace] = field(default_factory=list)
+    items: list[dict[str, Any]] = field(default_factory=list)
+
+
+# The model ends a reply with "ITEMS: 3120, 3121" to have the widget show those items as
+# tiles. Tolerant of brackets and "#", since an open model will not type it identically
+# every time.
+_ITEMS_LINE = re.compile(r"^[ \t]*\[?ITEMS:([\d,# \t]*)\]?[ \t]*$", re.I | re.M)
+
+# Tiles per reply. Matches NAMES_LIMIT, the most one listing can return.
+MAX_TILES = 30
+
+# A sentence naming this many tiled items is a list the tiles already show.
+LISTING_NAMES = 3
+
+# After one of these succeeds the cart panel shows what changed, and a reply like "Added
+# the Zinger Burger Meal and a Single Cheese Burger" is a confirmation, not a list.
+CART_TOOLS = {"add_to_cart", "remove_from_cart", "clear_cart"}
+
+_SENTENCE_END = re.compile(r"(?<=[.!?])\s+")
 
 
 class Assistant:
@@ -124,7 +144,11 @@ class Assistant:
         return self._keys
 
     async def _call_model(
-        self, messages: list[dict[str, Any]], client: httpx.AsyncClient, api_key: str
+        self,
+        messages: list[dict[str, Any]],
+        client: httpx.AsyncClient,
+        api_key: str,
+        tool_choice: Any = "auto",
     ) -> dict[str, Any]:
         response = await client.post(
             f"{config.GROQ_BASE_URL.rstrip('/')}/chat/completions",
@@ -139,7 +163,7 @@ class Assistant:
                 # The system prompt carries the whole menu and is identical every call.
                 "messages": [{"role": "system", "content": self._system}] + messages,
                 "tools": self._tools,
-                "tool_choice": "auto",
+                "tool_choice": tool_choice,
             },
         )
 
@@ -173,7 +197,10 @@ class Assistant:
         return payload["choices"][0]["message"]
 
     async def _call_with_retry(
-        self, messages: list[dict[str, Any]], client: httpx.AsyncClient
+        self,
+        messages: list[dict[str, Any]],
+        client: httpx.AsyncClient,
+        tool_choice: Any = "auto",
     ) -> dict[str, Any]:
         """
         Ride out Groq's rate limits.
@@ -211,7 +238,7 @@ class Assistant:
                 continue
 
             try:
-                return await self._call_model(messages, client, key.value)
+                return await self._call_model(messages, client, key.value, tool_choice)
             except RateLimited as exc:
                 if exc.per_day:
                     if not self._keys.retire(key) and self._keys.seconds_until_free() is None:
@@ -240,10 +267,20 @@ class Assistant:
         traces: list[ToolTrace] = []
         replies: list[str] = []
         turn: dict[str, Any] = {}  # per-message tool limits; see run_tool
+        listed: list[int] = []  # item ids a detail="names" search returned this turn
+
+        # "Do you have starters?" is answerable from the category index in the prompt,
+        # and the model reliably answers it from there — a count and a price range, no
+        # items, so nothing to show as tiles. The prompt forbids it and it still happens,
+        # so when the message names a category the first call must search.
+        choice: Any = "auto"
+        if self._menu.category_in(message):
+            choice = {"type": "function", "function": {"name": "search_menu"}}
 
         async with httpx.AsyncClient(timeout=60.0) as client:
             for _ in range(config.MAX_TOOL_HOPS):
-                reply = await self._call_with_retry(history, client)
+                reply = await self._call_with_retry(history, client, choice)
+                choice = "auto"
                 history.append(reply)
 
                 if reply.get("content"):
@@ -265,6 +302,8 @@ class Assistant:
                         parsed = {}
                     else:
                         output = run_tool(name, parsed, self._menu, cart, turn)
+                        if name == "search_menu" and parsed.get("detail") == "names":
+                            listed += [i["item_id"] for i in output.get("items", [])]
 
                     traces.append(ToolTrace(name, parsed, "error" not in output))
                     history.append(
@@ -279,14 +318,116 @@ class Assistant:
                 log.warning("hit MAX_TOOL_HOPS without a final reply")
                 replies.append("Sorry — I got stuck working that out. Could you rephrase it?")
 
+        cart_changed = any(t.ok and t.name in CART_TOOLS for t in traces)
+        text, items = self._tiles(
+            "\n\n".join(r for r in replies if r), _searched_ids(history), listed, cart_changed
+        )
         _trim(history)
 
         return TurnResult(
-            reply="\n\n".join(r for r in replies if r)
-            or "Sorry, I didn't catch that — could you rephrase?",
+            reply=text or "Sorry, I didn't catch that — could you rephrase?",
             cart=cart.state(),
             tools=traces,
+            items=items,
         )
+
+    def _tiles(
+        self, text: str, searched: set[int], listed: list[int], cart_changed: bool
+    ) -> tuple[str, list[dict[str, Any]]]:
+        """
+        Strip the ITEMS line from the reply and turn it into tiles.
+
+        Only ids search_menu has returned in this conversation survive, and every tile is
+        built from the menu itself — the model picks which items to show, never what a
+        tile says. Earlier turns count: "show me the names" is often answered from the
+        previous turn's search, and that is exactly when the tiles are wanted. If the
+        model forgot the line, show the searched items its reply names outright, or
+        failing that this turn's names listing — a listing exists to be shown.
+        """
+        requested: list[int] = []
+        for match in _ITEMS_LINE.finditer(text):
+            requested += [int(n) for n in re.findall(r"\d+", match.group(1))]
+        text = re.sub(r"\n{3,}", "\n\n", _ITEMS_LINE.sub("", text)).strip()
+
+        if cart_changed:
+            return text, []
+
+        known = [item for i in searched if (item := self._menu.get(i))]
+        if not requested:
+            requested = [item_id for _, item_id in _mentions(text, known)] or listed
+
+        tiles: list[dict[str, Any]] = []
+        for item_id in dict.fromkeys(requested):
+            item = self._menu.get(item_id)
+            if item is None or item_id not in searched:
+                continue
+            tiles.append(
+                {
+                    "item_id": item.item_id,
+                    "name": item.name,
+                    "price": item.price,
+                    "category": item.category,
+                    "has_choices": bool(item.required_steps),
+                }
+            )
+        tiles = tiles[:MAX_TILES]
+
+        if tiles:
+            shown = [self._menu.get(t["item_id"]) for t in tiles]
+            text = _drop_listings(text, shown) or "Here's what we have:"
+        return text, tiles
+
+
+def _searched_ids(history: list[dict[str, Any]]) -> set[int]:
+    """Every item id search_menu has returned in the conversation still held."""
+    ids: set[int] = set()
+    for message in history:
+        if message.get("role") != "tool" or message.get("name") != "search_menu":
+            continue
+        try:
+            ids.update(i["item_id"] for i in json.loads(message["content"]).get("items", []))
+        except (ValueError, TypeError, KeyError, AttributeError):
+            continue
+    return ids
+
+
+def _mentions(text: str, items: list) -> list[tuple[int, int]]:
+    """
+    (position, item_id) for each item named in `text`, in reading order.
+
+    Longest names match first and are masked, so "Double Cheeseburger Meal" does not also
+    count as "Double Cheeseburger".
+    """
+    found: list[tuple[int, int]] = []
+    for item in sorted(items, key=lambda i: -len(i.name)):
+        pattern = re.compile(r"(?<!\w)" + re.escape(item.name) + r"(?!\w)", re.I)
+        found += [(m.start(), item.item_id) for m in pattern.finditer(text)]
+        text = pattern.sub(lambda m: "\0" * len(m.group()), text)
+    return sorted(found)
+
+
+def _drop_listings(text: str, items: list) -> str:
+    """
+    Remove sentences that list the tiled items, keeping the lead-in and any question.
+
+    The model is asked to leave the list to the tiles and often writes it out anyway —
+    27 burgers as a wall of prose above 27 tiles. A sentence naming several tiled items
+    goes; if it opened with a lead-in ("Four chicken items under £3: ..."), that part
+    stays. Questions are kept whole: dropping one would leave the customer without it.
+    """
+    lines = []
+    for line in text.split("\n"):
+        kept = []
+        for sentence in _SENTENCE_END.split(line):
+            named = _mentions(sentence, items)
+            if len({i for _, i in named}) < LISTING_NAMES or sentence.rstrip().endswith("?"):
+                kept.append(sentence)
+                continue
+            colon = sentence.find(":")
+            if 0 <= colon < named[0][0]:
+                kept.append(sentence[: colon + 1])
+        lines.append(" ".join(kept).strip())
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 
 def _trim(history: list[dict[str, Any]]) -> None:
