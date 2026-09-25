@@ -2,7 +2,6 @@
 .env
 
 # client data
-menu.json
 project_detail.md
 
 # python
