@@ -1,9 +1,6 @@
 # secrets — never commit
 .env
 
-# client data
-project_detail.md
-
 # python
 .venv/
 venv/
